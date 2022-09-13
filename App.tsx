@@ -1,11 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Text } from 'react-native';
 
 import styled from 'styled-components/native';
+import { Routes } from './src/routes';
 
 const Container = styled.View`
-  background-color: red;
+  //background-color: red;
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -13,9 +16,10 @@ const Container = styled.View`
 
 export default function App() {
   return (
-    <Container>
-      <Text>start</Text>
-      <StatusBar style="auto" />
-    </Container>
+    <SafeAreaProvider>
+      <NavigationContainer>
+          <Routes />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
